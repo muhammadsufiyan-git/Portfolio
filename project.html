@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,84 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
             background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             text-align: center;
             color: white;
-            font-family: 'Arial', sans-serif;
-            margin-top: 50px;
+            position: relative;
+            overflow-x: hidden;
+            height: 100vh;
+            animation: backgroundAnimation 15s infinite alternate;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            100% {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
         }
 
         .logo {
-            color: white;
-            font-size: 30px;
+            font-size: 36px;
             font-weight: bold;
             letter-spacing: 2px;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            color: white;
+            animation: logoTextEffect 5s infinite;
+        }
+
+        @keyframes logoTextEffect {
+            0% {
+                color: #ff6347;
+            }
+
+            50% {
+                color: #32cd32;
+            }
+
+            100% {
+                color: #4682b4;
+            }
         }
 
         h2 {
-            color: white;
             font-size: 2.5rem;
             font-weight: 600;
             margin-top: 50px;
+            animation: textAnimation 10s ease-in-out infinite;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                color: #ff6347;
+            }
+
+            50% {
+                color: #32cd32;
+            }
+
+            100% {
+                color: #4682b4;
+            }
         }
 
         nav {
@@ -36,7 +93,6 @@
         }
 
         nav .navbar-brand {
-            font-family: 'Nunito', sans-serif;
             font-size: 1.8rem;
             letter-spacing: 1px;
             font-weight: 700;
@@ -65,28 +121,49 @@
 
         .projects-container {
             display: flex;
-            flex-direction: row;
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
+            margin-top: 50px;
+            animation: fadeIn 2s ease-in-out;
         }
 
-        .project-card {
-            width: 300px;
-            height: 400px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes borderRun {
+            0% {
+                border-color: #b22222;
+            }
+
+            25% {
+                border-color: #4682b4;
+            }
+
+            50% {
+                border-color: #228b22;
+            }
+
+            75% {
+                border-color: #ffd700;
+            }
+
+            100% {
+                border-color: #8a2be2;
+            }
         }
 
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            background-color: #3498db;
         }
 
         .project-card img {
@@ -101,6 +178,21 @@
             margin-top: 15px;
             font-weight: 500;
             color: #333;
+            animation: textScale 2s infinite alternate;
+        }
+
+        @keyframes textScale {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .project-card p {
@@ -114,10 +206,55 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
+            transition: text-decoration 0.3s;
         }
 
         .project-card a:hover {
             text-decoration: underline;
+        }
+
+        .btn-project {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-project:hover {
+            background-color: yellow;
+            transform: translateY(-5px);
+        }
+
+        .btn-project::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: white;
+            transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .btn-project:hover::before {
+            width: 0;
+            height: 0;
+            opacity: 0.2;
+            top: 50%;
+            left: 50%;
         }
 
         .side-navbar {
@@ -151,10 +288,56 @@
             color: white;
         }
 
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .projects-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-card {
+                width: 90%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav .navbar-nav {
+                display: none;
+            }
+
+            .side-navbar {
+                width: 250px;
+                position: fixed;
+                top: 0;
+                left: -250px;
+                z-index: 1000;
+                transition: left 0.3s ease;
+            }
+
+            .side-navbar.open {
+                left: 0;
+            }
+
+            nav .navbar-nav .nav-link {
+                font-size: 1.2rem;
+            }
+        }
+
         .project-card {
-            width: 300px;
-            height: 400px;
-            background-color: #fff;
+            width: 320px;
+            height: 420px;
+            background-color: #000;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -162,6 +345,11 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            border-width: 6px;
+            border-style: solid;
+            border-color: #b22222;
+            animation: borderRun 5s infinite linear;
+            color: white;
         }
 
         .project-card:hover {
@@ -169,8 +357,33 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
             background-color: #3498db;
         }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            margin-top: 15px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: white;
+        }
+
+        .project-card a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: text-decoration 0.3s;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
+
 <body>
     <div id="mySidenav" class="side-navbar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
@@ -186,32 +399,33 @@
             <span class="hamburger" onclick="toggleNav()">&#9776;</span>
         </div>
     </nav>
+
     <section id="projects" class="section-projects py-5 mt-5">
         <div class="container">
             <div class="projects-container">
                 <div class="project-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStEK4-uCBTxziOS19Axcg8yAexm9bSO-2m7w&s"
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUY2_z8sFoYuxuZplammHEdEFWREtJJofERg&s"
                         alt="Project 1">
-                    <h3>Todo List</h3>
-                    <p>A responsive website built using HTML, CSS, and JavaScript. It adapts to different screen sizes.
-                    </p>
-                    <a href="todolist.html">View Project</a>
+                    <h3>Todo List App</h3>
+                    <p>An intuitive To-Do List application built using HTML, CSS, and JavaScript. Manage tasks, mark
+                        them as complete, and delete them with ease.</p>
+                    <a href="todolist.html" class="btn-project">View Project</a>
                 </div>
                 <div class="project-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX-B_eVeOO9Y_l7_WQ5zjElkckYhXeyIDugg&s"
+                    <img src="https://media.istockphoto.com/id/941302930/vector/online-shopping-smartphone-turned-into-internet-shop-concept-of-mobile-marketing-and-e.jpg?s=612x612&w=0&k=20&c=oEaIaAVRL6w7juxEIVwFPISjW_XkoYbLmK_VRWjNaEk="
                         alt="Project 2">
-                    <h3>Responsive Website</h3>
-                    <p>A responsive website built using HTML, CSS, and JavaScript. It adapts to different screen sizes.
-                    </p>
-                    <a href="home.html">View Project</a>
+                    <h3>Online Shopping Website</h3>
+                    <p>This e-commerce website is designed with a responsive layout to showcase products, allowing users
+                        to shop .</p>
+                    <a href="home.html" class="btn-project">View Project</a>
                 </div>
                 <div class="project-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfaMlSNJKTWN1DRIdk5sbPL7bjfvR_0jGylA&s"
+                    <img src="https://www.shutterstock.com/image-vector/vector-realistic-isolated-neon-sign-260nw-1181047573.jpg"
                         alt="Project 3">
                     <h3>Number Guessing Game</h3>
-                    <p>A responsive website built using HTML, CSS, and JavaScript. It adapts to different screen sizes.
-                    </p>
-                    <a href="game.html">View Project</a>
+                    <p>A fun and interactive number guessing game where users have to guess the correct number within a
+                        set range.</p>
+                    <a href="game.html" class="btn-project">View Project</a>
                 </div>
             </div>
         </div>
@@ -220,7 +434,7 @@
     <script>
         function toggleNav() {
             const sidenav = document.getElementById("mySidenav");
-            sidenav.style.left = sidenav.style.left === "0px" ? "-250px" : "0";
+            sidenav.classList.toggle("open");
         }
 
         function closeNav() {
@@ -230,5 +444,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
