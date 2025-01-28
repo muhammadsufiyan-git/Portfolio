@@ -138,6 +138,7 @@
             }
         }
 
+
         @keyframes borderRun {
             0% {
                 border-color: #b22222;
@@ -434,13 +435,20 @@
     <script>
         function toggleNav() {
             const sidenav = document.getElementById("mySidenav");
-            sidenav.classList.toggle("open");
+            const isOpen = sidenav.style.left === "0px";
+
+            if (isOpen) {
+                sidenav.style.left = "-250px";
+            } else {
+                sidenav.style.left = "0";
+            }
         }
 
         function closeNav() {
             document.getElementById("mySidenav").style.left = "-250px";
         }
     </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
