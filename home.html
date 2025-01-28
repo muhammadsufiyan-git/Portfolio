@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .header {
+            background-color: black;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-area span {
+            margin: 0 20px;
+            font-size: 1.1rem;
+        }
+
+        .navbar {
+            background-color: white;
+        }
+
+        .navbar .navbar-brand img {
+            height: 50px;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+
+        .navbar-nav .nav-item {
+            padding: 0 15px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+        }
+
+        .navbar .form-inline {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar .form-inline input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .navbar .form-inline button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .navbar .form-inline .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+        }
+
+        .search-bar {
+            width: 36%;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .orders-accounts-btn {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .orders-accounts-btn i {
+            margin-left: 5px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo-container img {
+            height: 80px;
+        }
+
+        .orders-accounts {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-left: 50px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .cart-icon {
+            font-size: 20px;
+            color: #666;
+            margin-left: 10px;
+        }
+
+        .footer {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .footer h5 {
+            color: #fff;
+        }
+
+        .footer hr {
+            border-color: #fff;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer li {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ccc;
+        }
+
+        .footer p {
+            color: #fff;
+        }
+
+        .card img {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card img:hover {
+            transform: scale(1.1);
+        }
+
+        .star-rating {
+            color: gold;
+        }
+
+        .search-bar {
+            width: 100%;
+            /* Make it full width */
+            max-width: 600px;
+            /* Add a max width for larger screens */
+            margin: 0 auto;
+            /* Center the search bar */
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            /* Ensure it takes full width of the container */
+        }
+
+        .input-group .form-control {
+            flex-grow: 1;
+            /* Make the input take the remaining space */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            /* Rounded left side */
+            position: relative;
+        }
+
+        .input-group .btn {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            /* Rounded right side */
+        }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            background: none;
+            border: none;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .input-group .form-control {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .input-group .btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-area">
+            <span>🛒 Free Returns within 90 Days</span>
+            <span>🚚 Free Shipping on Orders Over $25</span>
+            <span>💳 Secure Payments</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.pinimg.com/originals/51/f0/74/51f0747d0411b526d57f70139b4d4348.png" alt="Temu Logo">
+            </a>
+
+            <div class="navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#">Best Seller</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">5-Star Rated</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Winter Offers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">New Arrivals</a></li>
+                </ul>
+            </div>
+
+            <form class="search-bar">
+                <div class="input-group" style="background-color: black; padding: 10px; border-radius: 50px;">
+                    <span class="input-group-text search-icon" style="color: white; border-radius: 50px 0 0 50px;"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search here..." aria-label="Search" style="background-color: white; color: black; border: none; border-radius: 0 50px 50px 0;">
+                </div>
+            </form>
+            
+            
+            
+
+
+
+            <a href="#" data-bs-toggle="modal" data-bs-target="#accountModal" class="orders-accounts">Orders &
+                Accounts</a>
+            <span>🛒</span>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="accountModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Or connect with</p>
+                        <a href="#" class="me-2"><i class="bi bi-facebook fs-3 text-primary"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-twitter fs-3 text-info"></i></a>
+                        <a href="#"><i class="bi bi-instagram fs-3 text-danger"></i></a>
+                    </div>
+                    <div class="text-center mt-3">
+                        <p>Don't have an account?
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal"
+                                data-bs-dismiss="modal">Sign Up</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword"
+                                placeholder="Enter your password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirm your password">
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <h2>Results for "temu"</h2>
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/b3229dbc0d25543d2f01740164012693.jpg_200x200q80.jpg_.webp"
+                            class="card-img-top" alt="Relaxing Slippers">
+                        <div class="card-body">
+                            <h5 class="card-title">Trouser T- shirt</h5>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="card-text">Price: Rs. 2,245</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/d4ff3e3714214efacc6cfbe7e2fda847.jpg_200x200q80.jpg_.webp"
+                            class="card-img-top" alt="T-Shirt">
+                        <div class="card-body">
+                            <h5 class="card-title">Casual T-Shirt</h5>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="card-text">Price: Rs. 1,499</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/0db986c00121410e66e3138e077df97d.png_200x200q80.png_.webp"
+                            class="card-img-top" alt="Watch">
+                        <div class="card-body">
+                            <h5 class="card-title">Stylish Watch</h5>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                            <p class="card-text">Price: Rs. 5,999</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/f40a6eefcfb9f4c0c24815bf5b1b418d.jpg_200x200q80.jpg_.webp"
+                            class="card-img-top" alt="Headphones">
+                        <div class="card-body">
+                            <h5 class="card-title">Wireless Headphones</h5>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="card-text">Price: Rs. 3,250</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/9a82a3761c81cc5e8c8f1618d9f18710.jpg_200x200q80.jpg_.webp"
+                            class="card-img-top" alt="Backpack">
+                        <div class="card-body">
+                            <h5 class="card-title">Travel Backpack</h5>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="card-text">Price: Rs. 2,899</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/91c3e0893d1e1fba9935b8d50dcc91fa.jpg_200x200q80.jpg_.webp"
+                            class="card-img-top" alt="Sneakers">
+                        <div class="card-body">
+                            <h5 class="card-title">Running Sneakers</h5>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="card-text">Price: Rs. 4,150</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/2ef8be9b2a2df18cbdf3ded0f7d10b6a.jpg_200x200q80.jpg_.webp"
+                            class="card-img-top" alt="Keyboard">
+                        <div class="card-body">
+                            <h5 class="card-title">Keyboard</h5>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="card-text">Price: Rs. 6,150</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="https://img.drz.lazcdn.com/static/pk/p/c56991921106762de3dbaa583c5cc02f.png_200x200q80.png_.webp"
+                            class="card-img-top" alt="shorts">
+                        <div class="card-body">
+                            <h5 class="card-title">shorts</h5>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="card-text">Price: Rs. 2,150</p>
+                        </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <img src="https://img.drz.lazcdn.com/static/pk/p/9be52600b1eb20598debf6a14405e3f6.jpg_200x200q80.jpg_.webp"
+                        class="card-img-top" alt="Sneakers">
+                    <div class="card-body">
+                        <h5 class="card-title">Designing Table</h5>
+                        <div class="star-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="card-text">Price: Rs. 7,170</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <img src="https://img.drz.lazcdn.com/static/pk/p/10e0ca4d341d8221183bd943f87683c9.jpg_200x200q80.jpg_.webp"
+                        class="card-img-top" alt="Sneakers">
+                    <div class="card-body">
+                        <h5 class="card-title">Iphone 15</h5>
+                        <div class="star-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <p class="card-text">Price: Rs. 299,999</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <img src="https://img.drz.lazcdn.com/static/pk/p/0fb1ebfb51aad4a685e52f8249138d55.jpg_200x200q80.jpg_.webp"
+                        class="card-img-top" alt="Sneakers">
+                    <div class="card-body">
+                        <h5 class="card-title">Track Suit</h5>
+                        <div class="star-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="card-text">Price: Rs. 3,250</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+                <a href="dashboard.html" class="text-decoration-none text-dark">
+                    <img src="https://img.drz.lazcdn.com/static/pk/p/59bc0533e6038781f5b1269cbb596d97.jpg_200x200q80.jpg_.webp"
+                        class="card-img-top" alt="Sneakers">
+                    <div class="card-body">
+                        <h5 class="card-title">Eligent Hodie</h5>
+                        <div class="star-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <p class="card-text">Price: Rs. 2,500</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <footer class="footer bg-dark mt-auto py-3">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-lg-4 col-xl-3">
+                        <h5>About Temu</h5>
+                        <hr class="bg-primary mb-2 mt-0 d-inline-block mx-auto w-25">
+                        <p>Temu is a global online retailer providing customers with a wide selection of
+                            products.</p>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                        <h5>Help</h5>
+                        <hr class="bg-primary mb-2 mt-0 d-inline-block mx-auto w-25">
+                        <ul class="list-unstyled text-muted">
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Returns</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2">
+                        <h5>Account</h5>
+                        <hr class="bg-primary mb-2 mt-0 d-inline-block mx-auto w-25">
+                        <ul class="list-unstyled text-muted">
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Register</a></li>
+                            <li><a href="#">Order Tracking</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3">
+                        <h5>Stay Connected</h5>
+                        <hr class="bg-primary mb-2 mt-0 d-inline-block mx-auto w-25">
+                        <ul class="list-unstyled text-muted">
+                            <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+                            <li><a href="#"><i class="bi bi-twitter"></i> Twitter</a></li>
+                            <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center small py-2">
+                &copy; 2024 Temu. All rights reserved.
+            </div>
+        </footer>
+
+        <script>
+            const validEmail = "muhammadraza.nat@gmail.com";
+            const validPassword = "mraza_12345";
+
+            document.getElementById("loginForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const email = document.getElementById("email");
+                const password = document.getElementById("password");
+
+                if (email.value === validEmail && password.value === validPassword) {
+                    alert("Login successful!");
+                    const loginModal = bootstrap.Modal.getInstance(document.getElementById("accountModal"));
+                    loginModal.hide();
+
+                    email.value = "";
+                    password.value = "";
+                } else {
+                    alert("Error: Invalid email or password!");
+                }
+            });
+
+            document.getElementById("signupForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const signupEmail = document.getElementById("signupEmail");
+                const signupPassword = document.getElementById("signupPassword");
+                const confirmPassword = document.getElementById("confirmPassword");
+
+                if (signupEmail.value === validEmail && signupPassword.value === validPassword) {
+                    alert("You already have an account.");
+                } else if (signupPassword.value !== confirmPassword.value) {
+                    alert("Error: Password and Confirm Password do not match!");
+                } else {
+                    alert("Successfully signed up!");
+                    const signupModal = bootstrap.Modal.getInstance(document.getElementById("signupModal"));
+                    signupModal.hide();
+                    signupEmail.value = "";
+                    signupPassword.value = "";
+                    confirmPassword.value = "";
+                }
+            });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

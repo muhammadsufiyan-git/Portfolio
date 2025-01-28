@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Nunito:wght@400;600&display=swap"rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 300%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
+            z-index: -1;
+        }
+
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        nav .navbar-brand {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6f61;
+        }
+
+        h2 {
+            color: white;
+            font-family: 'Nunito', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill h3 {
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .skill p {
+            font-size: 1.1rem;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .skill {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(238, 237, 237, 0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+            background-color: #3498db;
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+        }
+
+        .skill h3 {
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .skill p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .side-navbar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            width: 250px;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .side-navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .side-navbar a:hover {
+            background-color: #3498db;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill {
+            background-color: #333;
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(33.33% - 20px);
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+        }
+
+        @media (max-width: 768px) {
+            .skill {
+                width: calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="mySidenav" class="side-navbar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">My Portfolio</a>
+            <span class="hamburger" onclick="toggleNav()">&#9776;</span>
+        </div>
+    </nav>
+
+    <section id="skills" class="section-skills py-5">
+        <div class="container">
+            <div class="skills-container">
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>HTML</h3>
+                    <p>Structuring web pages with clean and semantic HTML.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>CSS</h3>
+                    <p>Styling websites for responsiveness and aesthetics.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Adding interactivity and dynamic behavior to websites.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>jQuery</h3>
+                    <p>Efficient DOM manipulation and animation with jQuery.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Bootstrap</h3>
+                    <p>Responsive design and front-end framework for building mobile-first websites and applications.
+                    </p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>SEO</h3>
+                    <p>Optimizing websites to rank higher on search engine result pages and increase organic traffic.
+                    </p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>UI & UX</h3>
+                    <p>Designing user-friendly interfaces and creating smooth user experiences for better engagement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleNav() {
+            const sidenav = document.getElementById("mySidenav");
+            sidenav.style.left = sidenav.style.left === "0px" ? "-250px" : "0";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.left = "-250px";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
