@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Product - Watches</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            line-height: 1.6;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .product-img {
+            width: 400px;
+            height: auto;
+            margin-right: 50px;
+        }
+
+        .product-details {
+            max-width: 600px;
+            color: white;
+        }
+
+        .product-details h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .product-details p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #ffdf00;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #ffcc00;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 80px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Watches</h1>
+            <p>Your Trusted Watch Store</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="product">
+            <div class="product-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrrvRWDpRts3ffsdJKXCCqzfSaLNGc2Bxc5g&s" alt="Luxury Watch" width="400">
+            </div>
+            <div class="product-details">
+                <h2>Luxury U-Boat Watch</h2>
+                <p>This luxurious U-Boat watch is crafted for style and precision. Featuring a stainless steel body, this watch is perfect for any occasion.</p>
+                <p>With a Swiss movement and water resistance, it’s a blend of elegance and functionality. The perfect addition to any collection.</p>
+                <div class="product-price">$1,500.00</div>
+                <a href="address.html" class="button">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Watches. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

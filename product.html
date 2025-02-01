@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Watches</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        .container {
+            color: white;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 14px;
+        }
+
+        nav {
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hamburger {
+            display: block;
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .side-nav {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            width: 250px;
+            background-color: #000;
+            color: white;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .side-nav ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 60px;
+        }
+
+        .side-nav ul li {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .side-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .side-nav ul li a:hover {
+            background-color: #000;
+            border-radius: 5px;
+        }
+
+        .side-nav.open {
+            left: 0;
+        }
+
+        .product-section {
+            padding: 120px 20px 40px;
+            text-align: center;
+        }
+
+        .product-section h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .product-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-item {
+            background-color: #4e4e4e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-item h3 {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .product-item p {
+            font-size: 18px;
+            color: #ffdf00;
+        }
+
+        .product-item button {
+            padding: 10px 20px;
+            background-color: #ffdf00;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .product-item button:hover {
+            background-color: #ffcc00;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .product-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .side-nav ul {
+                margin-top: 50px;
+            }
+        }
+
+        .side-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .hamburger {
+            display: block;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .side-nav ul li:first-child {
+            margin-top: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Watches</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <div class="side-nav" id="side-nav">
+            <ul>
+                <li><a href="watch.html">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="contact2.html">Contact</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+   <section class="product-section">
+        <div class="container">
+            <h2>Our Collection</h2>
+            <p>Explore our luxury watches crafted to perfection. Browse through our latest collection.</p>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrrvRWDpRts3ffsdJKXCCqzfSaLNGc2Bxc5g&s"
+                        alt="Watch 1">
+                    <h3>Elegant Silver Watch</h3>
+                    <p>21000$</p>
+                    <a href="payment2.html"><button>Buy Now</button></a>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTChCF1Lr6XovQ-MikJbbrpkpSrUJQioGKAYQ&s"
+                        alt="Watch 2">
+                    <h3>Golden Luxury Watch</h3>
+                    <p>20000$</p>
+                    <a href="payment2.html"><button>Buy Now</button></a>
+                </div>
+                <div class="product-item">
+                    <img src="https://static.helioswatchstore.com/media/easyslide/U-Boat.jpg" alt="Watch 3">
+                    <h3>Rolex Premium Watch</h3>
+                    <p>18000$</p>
+                    <a href="payment2.html"><button>Buy Now</button></a>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0qsO8u2eHn9iv31F9FVothDWsoBDZKFZL6g&s"
+                        alt="Watch 4">
+                    <h3>Calvin Klein</h3>
+                    <p>8000$</p>
+                    <a href="payment2.html"><button>Buy Now</button></a>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ4zuvD1c4CGAVKvbeVBiRV5zkoq8oOYTCMg&s"
+                        alt="Watch 5">
+                    <h3>Calvin Klein</h3>
+                    <p>10000$</p>
+                    <a href="payment2.html"><button>Buy Now</button></a>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR28n69GelS8ziZBHC8XYLbQMN2HV0vr9ii3A&s"
+                        alt="Watch 6">
+                    <h3>Calvin Klein Black</h3>
+                    <p>6000$</p>
+                    <a href="payment2.html"><button>Buy Now</button></a>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtzmlj87j9c2sgFZN0Q5Y_-DWDSFoHIhpQ8Q&s"
+                        alt="Watch 7">
+                    <h3>Luxury Watch Blue</h3>
+                    <p>22000$</p>
+                    <a href="payment2.html"><button>Buy Now</button></a>
+                </div>
+                <div class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Ag3f4h79xiUnBgPItmNnMCP9BlVRpvZIGw&s"
+                        alt="Watch 8">
+                    <h3>Classic Gold Watch</h3>
+                    <p>25000$</p>
+                    <a href="payment2.html"><button>Buy Now</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Watches. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sideNav = document.getElementById('side-nav');
+
+        hamburger.addEventListener('click', () => {
+            sideNav.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>
